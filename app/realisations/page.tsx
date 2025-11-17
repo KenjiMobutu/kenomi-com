@@ -127,7 +127,7 @@ export default function Realisations() {
     : projects.filter(project => project.category === filter);
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen pt-30">
       {/* Hero Section */}
       <section className="relative py-24 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -153,7 +153,7 @@ export default function Realisations() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-12 bg-white border-b border-slate-200 sticky top-20 z-40 backdrop-blur-lg bg-white/95">
+      <section className="py-12 bg-white border-b border-slate-200 sticky top-20 z-40 backdrop-blur-lg">
         <div className="container mx-auto px-6">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
@@ -162,7 +162,7 @@ export default function Realisations() {
                 onClick={() => setFilter(category.id)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   filter === category.id
-                    ? 'bg-gradient-to-r from-emerald-500 to-sky-500 text-white shadow-lg scale-105'
+                    ? 'bg-linear-to-r from-emerald-500 to-sky-500 text-white shadow-lg scale-105'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
@@ -189,6 +189,16 @@ export default function Realisations() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
+                  whileHover={{
+                    y: -12,
+                    rotateX: 5,
+                    scale: 1.03,
+                    transition: { duration: 0.3 }
+                  }}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    perspective: 1000
+                  }}
                   onClick={() => setSelectedProject(project)}
                   className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
                 >
@@ -198,7 +208,7 @@ export default function Realisations() {
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                       style={{ backgroundImage: `url(${project.image})` }}
                     ></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                     {/* Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -257,7 +267,7 @@ export default function Realisations() {
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: `url(${selectedProject.image})` }}
                 ></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
 
                 {/* Close Button */}
                 <button
@@ -288,7 +298,7 @@ export default function Realisations() {
                 {/* Objective */}
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-sky-500 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-linear-to-br from-emerald-500 to-sky-500 rounded-lg flex items-center justify-center">
                       <Code className="text-white" size={20} />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-800">Objectif</h3>
@@ -301,7 +311,7 @@ export default function Realisations() {
                 {/* Technologies */}
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-linear-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                       <Palette className="text-white" size={20} />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-800">Technologies</h3>
@@ -310,7 +320,7 @@ export default function Realisations() {
                     {selectedProject.technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-4 py-2 bg-gradient-to-br from-slate-100 to-slate-50 border border-slate-200 text-slate-700 rounded-lg font-medium"
+                        className="px-4 py-2 bg-linear-to-br from-slate-100 to-slate-50 border border-slate-200 text-slate-700 rounded-lg font-medium"
                       >
                         {tech}
                       </span>
@@ -321,7 +331,7 @@ export default function Realisations() {
                 {/* Results */}
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-linear-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
                       <TrendingUp className="text-white" size={20} />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-800">Résultats</h3>
@@ -329,7 +339,7 @@ export default function Realisations() {
                   <ul className="space-y-3">
                     {selectedProject.results.map((result, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center shrink-0 mt-0.5">
                           <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
@@ -347,7 +357,7 @@ export default function Realisations() {
                       href={selectedProject.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-sky-500 text-white rounded-full font-semibold hover:shadow-lg transition-all"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-emerald-500 to-sky-500 text-white rounded-full font-semibold hover:shadow-lg transition-all"
                     >
                       Visiter le site
                       <ExternalLink size={18} />

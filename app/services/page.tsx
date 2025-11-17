@@ -132,9 +132,9 @@ export default function Services() {
   ];
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen pt-30">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      <section className="relative py-24 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-500 rounded-full filter blur-3xl"></div>
@@ -148,7 +148,7 @@ export default function Services() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Nos <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">Services</span>
+              Nos <span className="bg-linear-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">Services</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">
               Des solutions digitales complètes pour donner vie à vos projets et propulser votre présence en ligne
@@ -168,17 +168,35 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{
+                  y: -10,
+                  rotateX: 5,
+                  rotateY: 5,
+                  scale: 1.02
+                }}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  perspective: 1000
+                }}
                 id={service.id}
                 className="group relative bg-white rounded-2xl border-2 border-slate-200 hover:border-transparent hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 {/* Gradient Background on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+                <div className={`absolute inset-0 bg-linear-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
 
                 <div className="relative p-8">
                   {/* Icon */}
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <motion.div
+                    whileHover={{
+                      scale: 1.2,
+                      rotateY: 360
+                    }}
+                    transition={{ duration: 0.6 }}
+                    className={`w-16 h-16 rounded-xl bg-linear-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg`}
+                    style={{ transformStyle: 'preserve-3d' }}
+                  >
                     <service.icon className="text-white" size={32} />
-                  </div>
+                  </motion.div>
 
                   {/* Content */}
                   <h3 className="text-2xl font-bold mb-3 text-slate-800">
@@ -192,7 +210,7 @@ export default function Services() {
                   <ul className="space-y-3">
                     {service.details.map((detail, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-slate-700">
-                        <CheckCircle className="text-emerald-500 flex-shrink-0 mt-0.5" size={18} />
+                        <CheckCircle className="text-emerald-500 shrink-0 mt-0.5" size={18} />
                         <span className="text-sm">{detail}</span>
                       </li>
                     ))}
@@ -215,7 +233,7 @@ export default function Services() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Notre <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">Processus</span>
+              Notre <span className="bg-linear-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">Processus</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
               Une méthodologie éprouvée pour garantir le succès de votre projet
@@ -234,25 +252,40 @@ export default function Services() {
               >
                 {/* Timeline Line */}
                 {index < process.length - 1 && (
-                  <div className="absolute left-8 top-20 w-0.5 h-full bg-gradient-to-b from-emerald-500 to-sky-500"></div>
+                  <div className="absolute left-8 top-20 w-0.5 h-full bg-linear-to-b from-emerald-500 to-sky-500"></div>
                 )}
 
                 {/* Number */}
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-sky-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <motion.div
+                  className="shrink-0"
+                  whileHover={{
+                    scale: 1.15,
+                    rotateY: 360
+                  }}
+                  transition={{ duration: 0.6 }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-emerald-500 to-sky-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">
                     {step.number}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Content */}
-                <div className="flex-1 bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+                <motion.div
+                  className="flex-1 bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+                  whileHover={{
+                    y: -4,
+                    scale: 1.02
+                  }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
                   <h3 className="text-2xl font-bold mb-2 text-slate-800">
                     {step.title}
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
                     {step.description}
                   </p>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -270,7 +303,7 @@ export default function Services() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-              Pourquoi choisir <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">Kenomi</span> ?
+              Pourquoi choisir <span className="bg-linear-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">Kenomi</span> ?
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -302,10 +335,16 @@ export default function Services() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex gap-4 p-6 rounded-xl bg-slate-50 hover:bg-gradient-to-br hover:from-emerald-50 hover:to-sky-50 transition-all duration-300"
+                  whileHover={{
+                    y: -6,
+                    scale: 1.03,
+                    rotateX: 5
+                  }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                  className="flex gap-4 p-6 rounded-xl bg-slate-50 hover:bg-linear-to-br hover:from-emerald-50 hover:to-sky-50 transition-all duration-300"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-sky-500 flex items-center justify-center">
+                  <div className="shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-linear-to-br from-emerald-500 to-sky-500 flex items-center justify-center">
                       <item.icon className="text-white" size={24} />
                     </div>
                   </div>
@@ -325,7 +364,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <section className="py-24 bg-linear-to-br from-slate-900 to-slate-800 text-white">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -340,13 +379,23 @@ export default function Services() {
             <p className="text-xl mb-10 text-slate-300">
               Contactez-nous pour discuter de vos besoins et obtenir un devis personnalisé.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-500 to-sky-500 text-white rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            <motion.div
+              whileHover={{
+                scale: 1.08,
+                y: -6,
+                rotateX: 10
+              }}
+              whileTap={{ scale: 0.95 }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              Demander un devis
-              <ArrowRight size={20} />
-            </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-emerald-500 to-sky-500 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                Demander un devis
+                <ArrowRight size={20} />
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>

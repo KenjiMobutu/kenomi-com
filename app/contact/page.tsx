@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -88,9 +88,9 @@ export default function Contact() {
   ];
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen pt-30">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      <section className="relative py-24 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-500 rounded-full filter blur-3xl"></div>
@@ -104,7 +104,7 @@ export default function Contact() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Contactez-<span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">nous</span>
+              Contactez-<span className="bg-linear-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">nous</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">
               Discutons de votre projet et voyons comment nous pouvons vous aider
@@ -126,7 +126,7 @@ export default function Contact() {
             >
               <div>
                 <h2 className="text-4xl font-bold mb-4 text-slate-800">
-                  Démarrons une <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">conversation</span>
+                  Démarrons une <span className="bg-linear-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">conversation</span>
                 </h2>
                 <p className="text-lg text-slate-600 leading-relaxed">
                   Nous sommes là pour répondre à toutes vos questions et vous accompagner dans votre projet digital.
@@ -142,9 +142,15 @@ export default function Contact() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="group flex items-start gap-4 p-6 bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-xl hover:border-emerald-300 hover:shadow-lg transition-all duration-300"
+                    whileHover={{
+                      y: -6,
+                      scale: 1.03,
+                      rotateX: 5
+                    }}
+                    style={{ transformStyle: 'preserve-3d' }}
+                    className="group flex items-start gap-4 p-6 bg-linear-to-br from-slate-50 to-white border border-slate-200 rounded-xl hover:border-emerald-300 hover:shadow-lg transition-all duration-300"
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-sky-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-linear-to-br from-emerald-500 to-sky-500 rounded-lg flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <item.icon className="text-white" size={24} />
                     </div>
                     <div>
@@ -169,7 +175,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="p-6 bg-gradient-to-br from-emerald-50 to-sky-50 rounded-xl border border-emerald-100"
+                className="p-6 bg-linear-to-br from-emerald-50 to-sky-50 rounded-xl border border-emerald-100"
               >
                 <h3 className="font-semibold text-slate-800 mb-2">Horaires d&apos;ouverture</h3>
                 <div className="space-y-1 text-slate-600">
@@ -278,10 +284,17 @@ export default function Contact() {
                 )}
 
                 {/* Submit Button */}
-                <button
+                <motion.button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-emerald-500 to-sky-500 text-white rounded-lg font-semibold hover:shadow-xl hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  whileHover={{
+                    scale: 1.03,
+                    y: -4,
+                    rotateX: 5
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                  className="w-full px-8 py-4 bg-linear-to-r from-emerald-500 to-sky-500 text-white rounded-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {status === 'loading' ? (
                     <>
@@ -294,7 +307,7 @@ export default function Contact() {
                       <Send size={20} />
                     </>
                   )}
-                </button>
+                </motion.button>
               </form>
             </motion.div>
           </div>
@@ -312,7 +325,7 @@ export default function Contact() {
             className="max-w-4xl mx-auto text-center"
           >
             <h2 className="text-3xl font-bold mb-4 text-slate-800">
-              Basés à Bruxelles, <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">intervenant partout</span>
+              Basés à Bruxelles, <span className="bg-linear-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">intervenant partout</span>
             </h2>
             <p className="text-lg text-slate-600">
               Nous accompagnons des clients dans toute la Belgique et à l&apos;international.

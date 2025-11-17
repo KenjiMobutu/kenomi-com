@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-emerald-50">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-slate-50 via-white to-emerald-50">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
@@ -80,7 +80,7 @@ export default function Home() {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 Transformez votre{' '}
-                <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">
                   vision digitale
                 </span>{' '}
                 en réalité
@@ -104,19 +104,39 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-              <Link
-                href="/contact"
-                className="group px-8 py-4 bg-gradient-to-r from-emerald-500 to-sky-500 text-white rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+              <motion.div
+                whileHover={{
+                  scale: 1.05,
+                  rotateX: 5,
+                  y: -4
+                }}
+                whileTap={{ scale: 0.98 }}
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                Démarrer un projet
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-              </Link>
-              <Link
-                href="/realisations"
-                className="px-8 py-4 border-2 border-slate-300 text-slate-700 rounded-full font-semibold hover:border-emerald-500 hover:text-emerald-500 transition-all duration-300"
+                <Link
+                  href="/contact"
+                  className="group px-8 py-4 bg-linear-to-r from-emerald-500 to-sky-500 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2"
+                >
+                  Démarrer un projet
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  scale: 1.05,
+                  rotateX: -5,
+                  y: -4
+                }}
+                whileTap={{ scale: 0.98 }}
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                Voir nos réalisations
-              </Link>
+                <Link
+                  href="/realisations"
+                  className="px-8 py-4 border-2 border-slate-300 text-slate-700 rounded-full font-semibold hover:border-emerald-500 hover:text-emerald-500 hover:shadow-lg transition-all duration-300"
+                >
+                  Voir nos réalisations
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -149,7 +169,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Nos <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">Services</span>
+              Nos <span className="bg-linear-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">Services</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
               Des solutions digitales complètes pour propulser votre présence en ligne
@@ -167,11 +187,29 @@ export default function Home() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="group p-8 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300"
+                whileHover={{
+                  y: -8,
+                  rotateX: 5,
+                  rotateY: 5,
+                  scale: 1.02
+                }}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  perspective: 1000
+                }}
+                className="group p-8 rounded-2xl bg-linear-to-br from-white to-slate-50 border border-slate-200 hover:border-emerald-300 hover:shadow-2xl transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-sky-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <motion.div
+                  whileHover={{
+                    scale: 1.15,
+                    rotateY: 360
+                  }}
+                  transition={{ duration: 0.6 }}
+                  className="w-14 h-14 bg-linear-to-br from-emerald-500 to-sky-500 rounded-xl flex items-center justify-center mb-6 shadow-lg"
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
                   <service.icon className="text-white" size={28} />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-semibold mb-3 text-slate-800">
                   {service.title}
                 </h3>
@@ -211,7 +249,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Notre <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">Approche</span>
+              Notre <span className="bg-linear-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">Approche</span>
             </h2>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
               Des valeurs qui guident chacun de nos projets
@@ -229,11 +267,28 @@ export default function Home() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
+                whileHover={{
+                  y: -8,
+                  scale: 1.05,
+                  rotateY: 5
+                }}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  perspective: 1000
+                }}
                 className="text-center p-8"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-sky-500 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <motion.div
+                  whileHover={{
+                    scale: 1.2,
+                    rotateZ: 360
+                  }}
+                  transition={{ duration: 0.6 }}
+                  className="w-16 h-16 bg-linear-to-br from-emerald-500 to-sky-500 rounded-full flex items-center justify-center mb-6 mx-auto shadow-xl"
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
                   <value.icon className="text-white" size={32} />
-                </div>
+                </motion.div>
                 <h3 className="text-2xl font-semibold mb-4">{value.title}</h3>
                 <p className="text-slate-300 leading-relaxed">
                   {value.description}
@@ -245,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-emerald-500 via-sky-500 to-emerald-600 text-white">
+      <section className="py-24 bg-linear-to-br from-emerald-500 via-sky-500 to-emerald-600 text-white">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -260,13 +315,23 @@ export default function Home() {
             <p className="text-xl mb-10 text-emerald-50">
               Discutons ensemble de vos objectifs et créons quelque chose d&apos;exceptionnel.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            <motion.div
+              whileHover={{
+                scale: 1.08,
+                y: -6,
+                rotateX: 10
+              }}
+              whileTap={{ scale: 0.95 }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              Contactez-nous
-              <ArrowRight size={20} />
-            </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                Contactez-nous
+                <ArrowRight size={20} />
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
