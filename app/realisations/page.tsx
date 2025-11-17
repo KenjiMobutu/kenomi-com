@@ -56,7 +56,7 @@ export default function Realisations() {
       id: 3,
       title: 'Identité Visuelle - Tech Startup',
       category: 'branding',
-      description: 'Création d&apos;identité complète pour une startup tech',
+      description: 'Création d&apos; identité complète pour une startup tech',
       image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
       tags: ['Branding', 'Logo', 'Charte graphique'],
       objective: 'Créer une identité visuelle moderne et impactante reflétant l&apos;innovation de la startup.',
@@ -129,7 +129,7 @@ export default function Realisations() {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      <section className="relative py-24 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-500 rounded-full filter blur-3xl"></div>
@@ -143,7 +143,7 @@ export default function Realisations() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Nos <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">Réalisations</span>
+              Nos <span className="bg-linear-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">Réalisations</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">
               Découvrez nos projets et l&apos;impact que nous créons pour nos clients

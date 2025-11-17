@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Github } from 'lucide-react';
 
 const Footer = () => {
@@ -40,10 +41,8 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold">
-              <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">
-                Kenomi
-              </span>
-              <span className="text-white ml-1">Communication</span>
+              <Image src="/noBgWhite.png" alt="Kenomi Logo" width={180} height={30} priority />
+              <span className="text-white-800 ml-1">Ꮤ𐌄𐌁 & 𐌂Ꝋ𐌌𐌌𐌵𐌍𐌉𐌂𐌀𐌕𐌉Ꝋ𐌍</span>
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               Agence spécialisée dans la conception de sites web et les services
