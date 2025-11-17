@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
@@ -42,10 +43,8 @@ const Header = () => {
               transition={{ duration: 0.5 }}
               className="text-2xl font-bold"
             >
-              <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">
-                Kenomi
-              </span>
-              <span className="text-slate-800 ml-1">Communication</span>
+              <Image src="/noBgColor.png" alt="Kenomi Logo" width={180} height={30} priority />
+              <span className="text-slate-800 ml-1">Ꮤ𐌄𐌁 & 𐌂Ꝋ𐌌𐌌𐌵𐌍𐌉𐌂𐌀𐌕𐌉Ꝋ𐌍</span>
             </motion.div>
           </Link>
 
